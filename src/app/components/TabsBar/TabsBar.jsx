@@ -10,8 +10,15 @@ const TabsBar = () => {
     const dispatch = useDispatch();
     return (
         <div className="tabs">
-            {tabs.map((tab) => (
-                <p key={tab}>{tab}</p>
+            {tabs.map((tab, index) => (
+                <div
+                    key={tab}
+                    className={activeTab === index ? "active-tab" : "tab"}
+                    onClick={() => dispatch(changeTab(index))}
+                >
+                    <p>{tab}</p>
+                    {activeTab === index && <span className="border" />}
+                </div>
             ))}
         </div>
     );
