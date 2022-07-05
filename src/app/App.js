@@ -1,7 +1,11 @@
 import './App.scss';
 import logo from "./assets/devchallenges.png"
+import AddTodoBar from './components/AddTodoBar/AddTodoBar';
 import TabsBar from './components/TabsBar/TabsBar';
 function App() {
+  const addTodo = (input) => {
+    alert(input)
+  }
   return (
     <div className="App">
       <header>
@@ -11,6 +15,7 @@ function App() {
         </a>
       </header>
       <TabsBar />
+      <AddTodoBar addTodo={addTodo} />
     </div>
   );
 }
