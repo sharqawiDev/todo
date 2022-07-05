@@ -38,7 +38,10 @@ function App() {
       <TabsBar changeTab={(tab) => dispatch(changeTab(tab))} activeTab={activeTab} tabs={tabs} />
       {activeTab !== 2 && <AddTodoBar addTodo={addToTodosList} />}
       <TodosList todos={getTodos()} completeTodo={switchTodoState} removeTodo={(todo) => dispatch(removeTodo(todo))} removeAllTodos={() => dispatch(removeAllTodos())} activeTab={activeTab} />
-      <h4 className='copyright'>Created by <strong><a href='https://github.com/sharqawiDev' rel="noreferrer" target={'_blank'}>Abdulrahman Elsharqawi</a></strong> - DevChallenges.io</h4>
+      <div className='copyright'>
+        <h4>Created by <strong><a href='https://github.com/sharqawiDev' rel="noreferrer" target={'_blank'}>Abdulrahman Elsharqawi</a></strong></h4>
+        <h4><a href='https://devchallenges.io/' target={'_blank'} rel="noreferrer">DevChallenges.io</a></h4>
+      </div>
     </div>
   );
 }
