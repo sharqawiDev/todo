@@ -2,7 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
-    value: [],
+    value: [
+        // { id: '', text: 'hiii', isDone: false }
+    ],
     /*
     todo structure: 
     {
@@ -18,13 +20,13 @@ export const todosSlice = createSlice({
     initialState,
     reducers: {
         addTodo: (state, action) => {
-            state.value.push({
+            state.value.unshift({
                 id: uuidv4(),
                 text: action.payload,
                 isDone: false
             })
         },
-        CompleteTodo: (state, action) => {
+        completeTodo: (state, action) => {
             const index = state.value.findIndex(todo => todo?.id === action.payload?.id)
             if (index !== -1) {
                 state.value[index]['isDone'] = !state.value[index]['isDone'];
@@ -43,6 +45,6 @@ export const todosSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addTodo, CompleteTodo, removeAllTodos, removeTodo } = todosSlice.actions
+export const { addTodo, completeTodo, removeAllTodos, removeTodo } = todosSlice.actions
 
 export default todosSlice.reducer
