@@ -7,6 +7,7 @@ const AddTodoBar = ({ addTodo }) => {
     const inputContainerRef = useRef();
 
     const submitInput = () => {
+        inputRef.current.zoom = "0%";
         addTodo(input);
         setInput("");
     };
@@ -31,6 +32,9 @@ const AddTodoBar = ({ addTodo }) => {
                             "focus-input"
                         )
                     }
+                    onKeyDown={(key) => {
+                        if (key.key === "Enter") submitInput(input);
+                    }}
                 />
                 {input.length > 0 && (
                     <img

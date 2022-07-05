@@ -20,14 +20,13 @@ export default function TodosList({
     removeAllTodos,
     activeTab,
 }) {
-    console.log(todos);
     return (
         <div className="todos-list">
             {todos.map((todo) => (
                 <div className="todo" key={todo.id}>
                     <input
                         type={"checkbox"}
-                        checked={todo.isDone}
+                        defaultChecked={todo.isDone}
                         onClick={() => completeTodo(todo)}
                     />
                     <p
