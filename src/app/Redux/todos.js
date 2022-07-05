@@ -2,17 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
-    value: [
-        // { id: '', text: 'hiii', isDone: false }
-    ],
-    /*
-    todo structure: 
-    {
-      id: number,
-      text: string,
-      isDone: boolean
-    }
-    */
+    value: JSON.parse(localStorage.getItem('todos')) || [],
 }
 
 export const todosSlice = createSlice({
@@ -25,21 +15,25 @@ export const todosSlice = createSlice({
                 text: action.payload,
                 isDone: false
             })
+            localStorage.setItem('todos', JSON.stringify(state.value))
         },
         completeTodo: (state, action) => {
             const index = state.value.findIndex(todo => todo?.id === action.payload?.id)
             if (index !== -1) {
                 state.value[index]['isDone'] = !state.value[index]['isDone'];
             }
+            localStorage.setItem('todos', JSON.stringify(state.value))
         },
         removeTodo: (state, action) => {
             const index = state.value.findIndex(todo => todo?.id === action.payload?.id)
             if (index !== -1) {
                 state.value.splice(index, 1);
             }
+            localStorage.setItem('todos', JSON.stringify(state.value))
         },
         removeAllTodos: (state) => {
-            state.value = []
+            state.value = state.value.filter(todo => !todo.isDone)
+            localStorage.setItem('todos', JSON.stringify(state.value))
         },
     },
 })

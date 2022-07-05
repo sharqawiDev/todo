@@ -26,7 +26,8 @@ export default function TodosList({
                 <div className="todo" key={todo.id}>
                     <input
                         type={"checkbox"}
-                        defaultChecked={todo.isDone}
+                        checked={todo.isDone}
+                        readOnly
                         onClick={() => completeTodo(todo)}
                     />
                     <p

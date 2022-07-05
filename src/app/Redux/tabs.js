@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     value: ['All', 'Active', 'Completed'],
-    activeTab: 0
+    activeTab: JSON.parse(localStorage.getItem('tab')) || 0
 }
 
 export const tabsSlice = createSlice({
@@ -11,6 +11,7 @@ export const tabsSlice = createSlice({
     reducers: {
         changeTab: (state, action) => {
             state.activeTab = action.payload
+            localStorage.setItem('tab', state.activeTab)
         },
     },
 })
