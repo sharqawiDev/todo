@@ -45,7 +45,8 @@ export default function TodosList({
             ))}
             {activeTab === 2 && todos.length > 0 && (
                 <button onClick={() => removeAllTodos()}>
-                    <TrashIcon color={"white"} dimensions={15} /> Delete All
+                    <TrashIcon color={"white"} dimensions={15} /> Delete
+                    Completed Todos
                 </button>
             )}
             {!todos.length && <h4>No todos found!</h4>}
