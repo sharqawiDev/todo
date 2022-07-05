@@ -1,5 +1,6 @@
 import './App.scss';
 import logo from "./assets/devchallenges.png"
+import TabsBar from './components/TabsBar/TabsBar';
 function App() {
   return (
     <div className="App">
@@ -9,7 +10,7 @@ function App() {
           <img src={logo} alt={'DevChallenges Logo'} />
         </a>
       </header>
-
+      <TabsBar />
     </div>
   );
 }
