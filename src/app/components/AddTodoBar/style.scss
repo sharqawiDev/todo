@@ -56,3 +56,15 @@
         cursor: no-drop;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .add-todo-bar {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .add-todo-bar {
+        width: 35%;
+    }
+}

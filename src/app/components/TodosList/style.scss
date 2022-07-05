@@ -55,3 +55,15 @@
         align-self: center;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .todos-list {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .todos-list {
+        width: 35%;
+    }
+}

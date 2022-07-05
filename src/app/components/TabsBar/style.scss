@@ -20,3 +20,15 @@
         border-radius: 50px;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .tabs {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .tabs {
+        width: 35%;
+    }
+}
