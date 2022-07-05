@@ -31,14 +31,18 @@ export const todosSlice = createSlice({
             }
             localStorage.setItem('todos', JSON.stringify(state.value))
         },
-        removeAllTodos: (state) => {
+        removeCompletedTodos: (state) => {
             state.value = state.value.filter(todo => !todo.isDone)
+            localStorage.setItem('todos', JSON.stringify(state.value))
+        },
+        removeAllTodos: (state) => {
+            state.value = []
             localStorage.setItem('todos', JSON.stringify(state.value))
         },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { addTodo, completeTodo, removeAllTodos, removeTodo } = todosSlice.actions
+export const { addTodo, completeTodo, removeCompletedTodos, removeAllTodos, removeTodo } = todosSlice.actions
 
 export default todosSlice.reducer

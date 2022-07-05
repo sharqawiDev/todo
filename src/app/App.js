@@ -4,7 +4,7 @@ import AddTodoBar from './components/AddTodoBar/AddTodoBar';
 import TabsBar from './components/TabsBar/TabsBar';
 import { useSelector, useDispatch } from "react-redux";
 import { changeTab } from "./Redux/tabs";
-import { addTodo, completeTodo, removeTodo, removeAllTodos } from "./Redux/todos";
+import { addTodo, completeTodo, removeTodo, removeCompletedTodos, removeAllTodos } from "./Redux/todos";
 import TodosList from './components/TodosList/TodosList';
 function App() {
   const [todos, tabs, activeTab] = useSelector((state) => [
@@ -37,7 +37,11 @@ function App() {
       </header>
       <TabsBar changeTab={(tab) => dispatch(changeTab(tab))} activeTab={activeTab} tabs={tabs} />
       {activeTab !== 2 && <AddTodoBar addTodo={addToTodosList} />}
-      <TodosList todos={getTodos()} completeTodo={switchTodoState} removeTodo={(todo) => dispatch(removeTodo(todo))} removeAllTodos={() => dispatch(removeAllTodos())} activeTab={activeTab} />
+      <TodosList todos={getTodos()} completeTodo={switchTodoState} removeTodo={(todo) => dispatch(removeTodo(todo))} removeAllTodos={() => dispatch(removeCompletedTodos())} activeTab={activeTab} />
+      {
+        todos.length > 0 &&
+        <button onClick={() => dispatch(removeAllTodos())}>CLEAR DATA</button>
+      }
       <div className='copyright'>
         <h4>Created by <strong><a href='https://github.com/sharqawiDev' rel="noreferrer" target={'_blank'}>Abdulrahman Elsharqawi</a></strong></h4>
         <h4><a href='https://devchallenges.io/' target={'_blank'} rel="noreferrer">DevChallenges.io</a></h4>

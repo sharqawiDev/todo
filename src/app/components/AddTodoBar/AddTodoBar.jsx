@@ -33,7 +33,8 @@ const AddTodoBar = ({ addTodo }) => {
                         )
                     }
                     onKeyDown={(key) => {
-                        if (key.key === "Enter") submitInput(input);
+                        if (key.key === "Enter" && input.length)
+                            submitInput(input);
                     }}
                 />
                 {input.length > 0 && (
