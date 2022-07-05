@@ -1,0 +1,18 @@
+.App {
+    display: flex;
+    justify-content: center;
+    header {
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a {
+            margin: 0px 10px;
+            img {
+                margin-top: 10px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
